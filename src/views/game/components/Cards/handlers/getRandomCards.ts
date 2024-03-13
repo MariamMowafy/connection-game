@@ -52,8 +52,8 @@ export function getRandomCards(randomCategories: CardsType[]) {
 
     allRandomButtons.length = 0;
 
-    randomCategories.map((category) => {
-        category.words.map((word) => {
+    randomCategories.forEach((category) => {
+        category.words.forEach((word) => {
             allRandomButtons.push({ id: id, word: word, type: category.type, color: dellGlacier, backgroundColor: dellBlue, selected: false })
         })
     })
