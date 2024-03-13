@@ -1,0 +1,184 @@
+{
+    "categories": [
+        {
+            "words": [
+                "Loop",
+                "Function",
+                "Return",
+                "Variable"
+            ],
+            "type": "Syntax"
+        },
+        {
+            "words": [
+                "Object",
+                "Class",
+                "Polymorphism",
+                "Inheritance"
+            ],
+            "type": "Object Oriented Programming"
+        },
+        {
+            "words": [
+                "Recursion",
+                "Efficiency",
+                "Complexity",
+                "Traverse"
+            ],
+            "type": "Algorithms"
+        },
+        {
+            "words": [
+                "Merge",
+                "Pull",
+                "Fetch",
+                "Rebase"
+            ],
+            "type": "Git Commands"
+        },
+        {
+            "words": [
+                "Scrum",
+                "Kanban",
+                "Sprint",
+                "Epic"
+            ],
+            "type": "Agile Methodology"
+        },
+        {
+            "words": [
+                "Wireframe",
+                "Figma",
+                "Design",
+                "User Research"
+            ],
+            "type": "UI / UX"
+        },
+        {
+            "words": [
+                "Linux",
+                "Windows",
+                "macOS",
+                "Kernel"
+            ],
+            "type": "Operating Systems"
+        },
+        {
+            "words": [
+                "Cloud",
+                "Server",
+                "Network",
+                "Security"
+            ],
+            "type": "Infrastructure"
+        },
+        {
+            "words": [
+                "Docker",
+                "Container",
+                "Microservice",
+                "Kubernetes"
+            ],
+            "type": "Deployment"
+        },
+        {
+            "words": [
+                "IDE",
+                "Compiler",
+                "Interpreter",
+                "Debugger"
+            ],
+            "type": "Development Environment"
+        },
+        {
+            "words": [
+                "Bug",
+                "Fix",
+                "Patch",
+                "Release"
+            ],
+            "type": "Defect Management"
+        },
+        {
+            "words": [
+                "Legacy Code",
+                "Technical Debt",
+                "Refactor",
+                "Clean Code"
+            ],
+            "type": "Code Quality"
+        },
+        {
+            "words": [
+                "SSH",
+                "HTTPS",
+                "FTP",
+                "SMTP"
+            ],
+            "type": "Network Protocols"
+        },
+        {
+            "words": [
+                "Latency",
+                "Bandwidth",
+                "Jitter",
+                "Throughput"
+            ],
+            "type": "Network Troubleshooting"
+        },
+        {
+            "words": [
+                "VPN",
+                "Firewall",
+                "Intrusion Detection System - IDS",
+                "Encryption"
+            ],
+            "type": "Network Security"
+        },
+        {
+            "words": [
+                "Quality of Service - QoS",
+                "Network Monitoring Tools",
+                "Traffic Shaping",
+                "Performance Metrics"
+            ],
+            "type": "Network Performance"
+        },
+        {
+            "words": [
+                "SQL",
+                "Query",
+                "Schema",
+                "Table"
+            ],
+            "type": "Database Management"
+        },
+        {
+            "words": [
+                "AWS",
+                "Azure",
+                "Google Cloud Platform - GCP",
+                "Virtualization"
+            ],
+            "type": ""
+        },
+        {
+            "words": [
+                "Malware",
+                "Phishing",
+                "Attack Vectors",
+                "Vulnerability Management"
+            ],
+            "type": "Security"
+        },
+        {
+            "words": [
+                "Data",
+                "Model",
+                "Unsupervised",
+                "Prediction"
+            ],
+            "type": "Machine Learning"
+        }
+    ]
+}
