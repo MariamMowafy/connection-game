@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { ButtonData, CardsType, WordType, dellBlue, dellGlacier, getRandomCards, getRandomCategories } from "./handlers/getRandomCards";
-import { useEffect, useState } from "react";
-import { Button, CardProps } from "antd";
+import { useState } from "react";
+import { Button } from "antd";
 import { SuccessfullAlert } from "./successfulAlert";
 
 
@@ -73,7 +73,7 @@ export const Cards = () => {
             mistakesRemaining--;
         } else {
 
-            selectedButtons.map((selectedButton) => {
+            selectedButtons.forEach((selectedButton) => {
                 if (selectedButton.type !== selectedButtons[0].type) {
                     check = false;
                     mistakesRemaining > 1 ? setMessage("Incorrect guess, please try again") : setMessage("Game Over! All attempts used up!");
@@ -84,9 +84,6 @@ export const Cards = () => {
         if (check && selectedButtons.length === 4) successfulConnection();
 
     }
-    useEffect(() => {
-    }, [check])
-
     function successfulConnection() {
         // store successful group
         const successfulCategory = randomCategories.filter(category => category.type === selectedButtons[0].type)

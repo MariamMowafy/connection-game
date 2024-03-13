@@ -2,7 +2,6 @@
 import styled from "@emotion/styled"
 import { Timer } from "./components/Timer";
 import { Cards } from "./components/Cards";
-import { useState } from "react";
 
 const TitleWrapper = styled.div`
     width: 100%;
