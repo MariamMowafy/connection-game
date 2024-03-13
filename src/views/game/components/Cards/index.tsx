@@ -39,7 +39,7 @@ const MistakesWrapper = styled.div`
 const WinnerWrapper = styled.div`
     height: 80vh;
     margin-top: 80px;
-    font-weight: 400;
+    font-weight: 300;
     color: green;
 `;
 
@@ -47,7 +47,6 @@ let randomCategories = getRandomCategories();
 
 let randomButtons = getRandomCards(randomCategories);
 let selectedButtons: (WordType & ButtonData)[] = [];
-let mistakesRemaining = 4;
 let check = true;
 
 export const Cards = () => {
@@ -62,26 +61,20 @@ export const Cards = () => {
     const [message, setMessage] = useState("");
     const [submitClicked, setSubmitClicked] = useState(false);
     const [isWinner, setIsWinner] = useState(false);
+    const [mistakesRemaining, setMistakesRemaining] = useState(4);
 
     let [successfulCategories, setSuccessfulCategories] = useState<CardsType[]>([]);
 
     function failedConnection(selectedButtons: (WordType & ButtonData)[]) {
 
-        if (selectedButtons.length !== 4) {
-            check = false;
-            mistakesRemaining > 1 ? setMessage("You need to select 4 items before submitting") : setMessage("Game Over! All attempts used up!");
-            mistakesRemaining--;
-        } else {
-
-            selectedButtons.forEach((selectedButton) => {
-                if (selectedButton.type !== selectedButtons[0].type) {
-                    check = false;
-                    mistakesRemaining > 1 ? setMessage("Incorrect guess, please try again") : setMessage("Game Over! All attempts used up!");
-                    mistakesRemaining--;
-                }
-            })
-        }
-        if (check && selectedButtons.length === 4) successfulConnection();
+        selectedButtons.forEach((selectedButton) => {
+            if (selectedButton.type !== selectedButtons[0].type) {
+                check = false;
+                mistakesRemaining > 1 ? setMessage("Incorrect guess, please try again") : setMessage("Game Over! All attempts used up!");
+                setMistakesRemaining(mistakesRemaining - 1);
+            }
+        })
+        if (check) successfulConnection();
 
     }
     function successfulConnection() {
@@ -165,7 +158,7 @@ export const Cards = () => {
                     {submitClicked && <p>{message}</p>}
                     <h2 style={{ fontWeight: 400 }}>Mistakes Remaining: {mistakesRemaining} </h2>
                 </MistakesWrapper>
-                <Button disabled={!mistakesRemaining || !randomCategories.length} onClick={handleSubmit}>Submit</Button>
+                <Button disabled={mistakesRemaining === 0 || !randomCategories.length || selectedButtons.length !== 4} onClick={handleSubmit}>Submit</Button>
             </CardsWrapper >}
         </>
     );
