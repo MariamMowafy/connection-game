@@ -1,8 +1,15 @@
 import styled from "@emotion/styled"
 import { ButtonData, CardsType, WordType, dellBlue, dellGlacier, getRandomCards, getRandomCategories } from "./handlers/getRandomCards";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "antd";
 import { SuccessfullAlert } from "./successfulAlert";
+import Papa from 'papaparse';
+import { publicIpv4 } from 'public-ip';
+import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
+import { Modal } from 'antd';
+import { Dispatch, SetStateAction } from 'react';
+
 
 
 const CardButton = styled.button`
@@ -49,7 +56,13 @@ let randomButtons = getRandomCards(randomCategories);
 let selectedButtons: (WordType & ButtonData)[] = [];
 let check = true;
 
-export const Cards = () => {
+type CardsProps = {
+    playerName: string;
+    elapsedTime: number;
+    setIsGameOver: Dispatch<SetStateAction<boolean>>;
+};
+  
+  export const Cards = ({ playerName, elapsedTime, setIsGameOver }: CardsProps) => {
 
     const alertColors = [
         "#80C7FB",
@@ -62,9 +75,57 @@ export const Cards = () => {
     const [submitClicked, setSubmitClicked] = useState(false);
     const [isWinner, setIsWinner] = useState(false);
     const [mistakesRemaining, setMistakesRemaining] = useState(4);
-
+    const [isModalVisible, setIsModalVisible] = useState(false);
     let [successfulCategories, setSuccessfulCategories] = useState<CardsType[]>([]);
+    const [ipAddress, setIpAddress] = useState('');
+    const navigate = useNavigate();
 
+    const showModal = () => {
+        setIsModalVisible(true);
+      };
+
+      const handleOk = () => {
+        setIsModalVisible(false);
+        navigate('/leaderboard');
+      };
+      const handleCancel = () => {
+        setIsModalVisible(false);
+      };
+      useEffect(() => {
+        if (isWinner || mistakesRemaining === 0) {
+          showModal();
+        }
+      }, [isWinner, mistakesRemaining]);
+    useEffect(() => {
+        const getIpAddress = async () => {
+          try {
+            const ip = await publicIpv4();
+            setIpAddress(ip);
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        };
+      
+        getIpAddress();
+      }, []);
+      useEffect(() => {
+        if (isWinner || mistakesRemaining === 0) {
+            setIsGameOver(true);
+        }
+    }, [isWinner, mistakesRemaining]);
+      useEffect(() => {
+        if (isWinner) {
+          axios.post('http://localhost:3001/leaderboard', {
+            playerName,
+            elapsedTime,
+            ipAddress
+          })
+          .catch(error => {
+            console.error('Error posting to leaderboard:', error);
+          });
+        //   {navigate('/leaderboard')}
+        }
+      }, [isWinner]);
     function failedConnection(selectedButtons: (WordType & ButtonData)[]) {
 
         selectedButtons.forEach((selectedButton) => {
@@ -77,6 +138,7 @@ export const Cards = () => {
         if (check) successfulConnection();
 
     }
+    
     function successfulConnection() {
         // store successful group
         const successfulCategory = randomCategories.filter(category => category.type === selectedButtons[0].type)
@@ -97,6 +159,7 @@ export const Cards = () => {
         }
         setSuccessfulCategories(successfulCategories);
         setButtons(randomButtons)
+       
     }
     function checkConnection(selectedButtons: (WordType & ButtonData)[]) {
 
@@ -131,16 +194,44 @@ export const Cards = () => {
         );
         handleSelections(id);
     };
+    const formatTime = (milliseconds: number) => {
+        const secondsTotal = Math.floor(milliseconds / 1000);
+        const minutes = Math.floor(secondsTotal / 60);
+        const seconds = secondsTotal % 60;
+        return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
+          2,
+          "0"
+        )}`;
+      };
     return (
         <>
+              <Modal title={isWinner ? "Congratulations!" : "Game Over"}
+             visible={isModalVisible}
+             onOk={handleOk}
+             onCancel={handleCancel}
+             footer={[
+               <Button key="leaderboard" type="primary" onClick={handleOk} style={{background:dellBlue,height:'40px'}}>
+                 Go to Leaderboard
+               </Button>
+             ]} 
+      >
+        <p style={{color: isWinner ? 'green' : 'red', fontSize:'22px'}}>
+          {isWinner ? `You won with a score of ${formatTime(elapsedTime)}` : 'Game Over! All attempts are used up.'}
+        </p>
+      </Modal>
             {isWinner &&
-                <WinnerWrapper>
+                <WinnerWrapper style={{textAlign:'center'}}>
                     <h1>CONGRATULATIONS! <br></br>YOU HAVE FOUND ALL GROUPS!</h1>
+                    <Button key="leaderboard" type="primary" onClick={handleOk} style={{background:dellBlue,height:'40px'}}>
+                 Go to Leaderboard
+               </Button>
                 </WinnerWrapper>
             }
             {!isWinner && submitClicked && successfulCategories.length !== 0 && successfulCategories.map((category, index) => {
+                
                 return (
                     <SuccessfullAlert card={category} color={alertColors[index]}></SuccessfullAlert>
+                    
                 )
             })}
             {!isWinner && <CardsWrapper>

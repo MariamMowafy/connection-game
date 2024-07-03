@@ -1,4 +1,4 @@
-import { Game } from "../game"
+import { Game } from "../game/game"
 import { Layout } from 'antd';
 import { dellBlue } from "../game/components/Cards/handlers/getRandomCards";
 import styled from "@emotion/styled";
@@ -20,7 +20,7 @@ export const LandingPage = () => {
   return (
     <Layout style={{ height: "100vh" }}>
       <Header>
-        <Title>CONNECTIONS GAME | DELL ON TOUR</Title>
+        <Title>CONNECTIONS GAME | BA PROGRAM</Title>
       </Header>
       <Game />
     </Layout>

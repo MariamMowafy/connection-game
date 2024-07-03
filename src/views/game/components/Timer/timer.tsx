@@ -1,15 +1,23 @@
 import { useState, useEffect } from "react";
+import { Dispatch, SetStateAction } from 'react';
 
-export const Timer = () => {
-    const [elapsedTime, setElapsedTime] = useState(0);
+type TimerProps = {
+    elapsedTime: number;
+    setElapsedTime: Dispatch<SetStateAction<number>>;
+    isGameOver: boolean;
+};
+  
+  export const Timer = ({ elapsedTime, setElapsedTime, isGameOver  }: TimerProps) => {
     useEffect(() => {
         let intervalId: number;
-        intervalId = window.setInterval(() => {
-            setElapsedTime((prevTime) => prevTime + 10);
-        }, 10);
+        if (!isGameOver) {
+            intervalId = window.setInterval(() => {
+                setElapsedTime((prevTime) => prevTime + 10);
+            }, 10);
+        }
 
         return () => clearInterval(intervalId);
-    }, []);
+    }, [isGameOver]);
 
     const formattedTime = (): string => {
 
