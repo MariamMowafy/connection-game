@@ -67,16 +67,16 @@ function LeaderboardPage() {
           CONGRATULATIONS! <br></br>YOU HAVE FOUND ALL GROUPS!
         </h1>
       </WinnerWrapper> */}
-<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' , marginTop:'50px'}}>
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' , marginTop:'10px'}}>
               <img
         src={trophies}
         alt="First place medal"
-        style={{ width: "650px", height: "490px" }}
+        style={{ width: "560px", height: "400px" }}
       />
         </div>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' , marginTop:'05px'}}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       
-  <div style={{ textAlign: "center", width: "600px" }}>
+  <div style={{ textAlign: "center", width: "600px" , marginTop:'-40px'}}>
     <div>
       {/* <img
         src={medal1}
@@ -116,7 +116,7 @@ function LeaderboardPage() {
   </div>
 </div>
 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' , marginTop:'20px', fontSize:'40px'}}>
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' , marginTop:'-30px', fontSize:'40px'}}>
     <h2 style={{color:dellBlue}}>Leaderboard</h2>
   </div>
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop:'20px', fontSize:'40px'}}>

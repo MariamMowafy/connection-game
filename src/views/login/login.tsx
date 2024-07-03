@@ -43,7 +43,7 @@ function LoginPage() {
     <h1 style={{fontSize:'40px', marginBottom:'-10px',fontWeight:'bolder'}}>BA Program</h1>
     <h2 style={{fontSize:'32px', marginBottom:'-10px',fontWeight:'bolder'}}>BA Analytics ; Connection game </h2>
     <h2 style={{fontSize:'28px', fontWeight:'lighter'}}>Please enter your email</h2>
-    <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter your email" style={{width:'200px',height:'25px',fontFamily: 'Segoe UI',fontSize:'12px', marginBottom:'10px', borderRadius:'8px', borderWidth:'1px'}}/>
+    <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter your email" style={{width:'200px',height:'35px',fontFamily: 'Segoe UI',fontSize:'12px', marginBottom:'10px', borderRadius:'8px', borderWidth:'1px'}}/>
     <button style={{ backgroundColor: dellBlue, color: 'white', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer', marginTop:'10px',fontSize:'12px', marginBottom:'10px' }} onClick={handleLogin}>Start Game</button>
     {Object.entries(leaderboard).map(([player, data], index) => (
       <div key={index} style={{ display: 'flex', justifyContent: 'space-between', border: '1px solid black', borderRadius: '10px', padding: '10px', margin: '20px 0', width: '700px', position: 'relative',borderWidth:'1px',borderColor:'lightgrey' , height:'22px'}}>
