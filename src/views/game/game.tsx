@@ -22,6 +22,7 @@ const ContentWrapper = styled.div`
 
     export const Game = () => {
       const playerName = localStorage.getItem('playerName') || '';
+      const email = localStorage.getItem('email') || '';
       const [elapsedTime, setElapsedTime] = useState(0);
       const [isGameOver, setIsGameOver] = useState(false);
   
@@ -31,7 +32,7 @@ const ContentWrapper = styled.div`
                   <h2>Find 4 Groups of 4 Words</h2>
                   <Timer elapsedTime={elapsedTime} setElapsedTime={setElapsedTime} isGameOver={isGameOver} />
               </TitleWrapper>
-              <Cards playerName={playerName} elapsedTime={elapsedTime} setIsGameOver={setIsGameOver} />
+              <Cards playerName={playerName} elapsedTime={elapsedTime} email={email} setIsGameOver={setIsGameOver} />
           </ContentWrapper>
       )
   }

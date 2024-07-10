@@ -59,10 +59,11 @@ let check = true;
 type CardsProps = {
     playerName: string;
     elapsedTime: number;
+    email: string;
     setIsGameOver: Dispatch<SetStateAction<boolean>>;
 };
   
-  export const Cards = ({ playerName, elapsedTime, setIsGameOver }: CardsProps) => {
+  export const Cards = ({ playerName, elapsedTime, email,  setIsGameOver }: CardsProps) => {
 
     const alertColors = [
         "#80C7FB",
@@ -118,7 +119,8 @@ type CardsProps = {
           axios.post('http://localhost:3001/leaderboard', {
             playerName,
             elapsedTime,
-            ipAddress
+            ipAddress,
+            email
           })
           .catch(error => {
             console.error('Error posting to leaderboard:', error);

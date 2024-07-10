@@ -7,13 +7,14 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/leaderboard', async (req, res) => {
-  const { playerName, elapsedTime, ipAddress } = req.body;
+  console.log(req.body)
+  const { playerName, elapsedTime, ipAddress, email } = req.body;
   try {
     let leaderboard = {};
     if (fs.existsSync('leaderboard.json')) {
       leaderboard = JSON.parse(fs.readFileSync('leaderboard.json'));
     }
-    leaderboard[playerName] = { score: elapsedTime, ipAddress };
+    leaderboard[playerName] = { score: elapsedTime, ipAddress, email:email };
     fs.writeFileSync('leaderboard.json', JSON.stringify(leaderboard));
     res.status(200).send('Score saved successfully');
   } catch (err) {
@@ -26,8 +27,8 @@ app.get('/leaderboard', async (req, res) => {
   try {
     const leaderboard = JSON.parse(fs.readFileSync('leaderboard.json'));
     const formattedLeaderboard = Object.entries(leaderboard).map(([playerName, data]) => {
-      const { score, ipAddress } = data;
-      return { playerName, score, ipAddress };
+      const { score, ipAddress, email } = data;
+      return { playerName, score, ipAddress, email };
     });
     res.status(200).json(formattedLeaderboard);
   } catch (err) {
