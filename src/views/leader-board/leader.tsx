@@ -6,6 +6,7 @@ import medal2 from "../login/2nd.jpg";
 import medal3 from "../login/3rd.jpg";
 import transparent from '../login/transparent.png';
 import trophies from './trophies.png';
+import { useNavigate } from "react-router-dom";
 
 export const dellBlue = "#0672CB";
 
@@ -30,6 +31,7 @@ const PyramidWrapper = styled.div`
 
 function LeaderboardPage() {
   const [data, setData] = useState<LeaderboardEntry[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
@@ -51,7 +53,9 @@ function LeaderboardPage() {
 
     fetchLeaderboard();
   }, []);
-
+  const handleOk = () => {
+    navigate('/');
+  };
   const formatTime = (milliseconds: number) => {
     const secondsTotal = Math.floor(milliseconds / 1000);
     const minutes = Math.floor(secondsTotal / 60);
@@ -93,6 +97,21 @@ function LeaderboardPage() {
         </div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+      <button key="leaderboard"  onClick={handleOk} style={{
+            backgroundColor: dellBlue,
+            color: "white",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            border: "none",
+            cursor: "pointer",
+            marginTop: "10px",
+            fontSize: "12px",
+            marginBottom: "10px",
+            marginLeft:"20px",
+            width:"150px"
+          }}>
+                 Play again!
+               </button>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-30px', fontSize: '40px' }}>
           <h2 style={{ color: dellBlue }}>Leaderboard</h2>
         </div>

@@ -2,183 +2,201 @@
     "categories": [
         {
             "words": [
-                "Loop",
-                "Function",
-                "Return",
-                "Variable"
-            ],
-            "type": "Syntax"
-        },
-        {
-            "words": [
-                "Object",
-                "Class",
-                "Polymorphism",
-                "Inheritance"
-            ],
-            "type": "Object Oriented Programming"
-        },
-        {
-            "words": [
-                "Recursion",
-                "Efficiency",
-                "Complexity",
-                "Traverse"
-            ],
-            "type": "Algorithms"
-        },
-        {
-            "words": [
-                "Merge",
-                "Pull",
-                "Fetch",
-                "Rebase"
-            ],
-            "type": "Git Commands"
-        },
-        {
-            "words": [
-                "Scrum",
-                "Kanban",
-                "Sprint",
-                "Epic"
-            ],
-            "type": "Agile Methodology"
-        },
-        {
-            "words": [
-                "Wireframe",
-                "Figma",
-                "Design",
-                "User Research"
-            ],
-            "type": "UI / UX"
-        },
-        {
-            "words": [
-                "Linux",
                 "Windows",
                 "macOS",
-                "Kernel"
+                "Linux",
+                "Centos"
             ],
             "type": "Operating Systems"
         },
         {
             "words": [
-                "Cloud",
-                "Server",
-                "Network",
-                "Security"
+                "C++",
+                "Java",
+                "Python",
+                "SQL"
             ],
-            "type": "Infrastructure"
+            "type": "Programming Languages"
         },
         {
             "words": [
-                "Docker",
-                "Container",
-                "Microservice",
-                "Kubernetes"
+                "Family Balance",
+                "Mosaic",
+                "Gennext",
+                "DT Belmasry"
             ],
-            "type": "Deployment"
+            "type": "ERGs"
         },
         {
             "words": [
-                "IDE",
-                "Compiler",
-                "Interpreter",
-                "Debugger"
+                "Histogram",
+                "Boxplot",
+                "Pie",
+                "Heatmap"
             ],
-            "type": "Development Environment"
+            "type": "Data Visualization (Charts)"
         },
         {
             "words": [
-                "Bug",
-                "Fix",
-                "Patch",
-                "Release"
+                "Business Analytics",
+                "RPA",
+                "Automation",
+                "Business Transformation"
             ],
-            "type": "Defect Management"
+            "type": "CIBO (Strategic Programs)"
         },
         {
             "words": [
-                "Legacy Code",
-                "Technical Debt",
-                "Refactor",
-                "Clean Code"
+                "PowerMax",
+                "DataDomain",
+                "Networker",
+                "Unity"
             ],
-            "type": "Code Quality"
+            "type": "Dell Products"
         },
         {
             "words": [
-                "SSH",
-                "HTTPS",
-                "FTP",
-                "SMTP"
+                "Data Lake",
+                "Data Manegement",
+                "Data Mining",
+                "Data Science"
             ],
-            "type": "Network Protocols"
+            "type": "Analytics Terms"
         },
         {
             "words": [
-                "Latency",
-                "Bandwidth",
-                "Jitter",
-                "Throughput"
+                "GPS",
+                "ISG",
+                "Refresh Quoting",
+                "Talent Acquisition"
             ],
-            "type": "Network Troubleshooting"
+            "type": "Business Units"
         },
         {
             "words": [
-                "VPN",
-                "Firewall",
-                "Intrusion Detection System - IDS",
-                "Encryption"
+                "Tableau",
+                "PowerBI",
+                "Google Data Studio",
+                "Fusioncharts"
             ],
-            "type": "Network Security"
+            "type": "Data Visualization Tools"
         },
         {
             "words": [
-                "Quality of Service - QoS",
-                "Network Monitoring Tools",
-                "Traffic Shaping",
-                "Performance Metrics"
+                "Revenue",
+                "Profit",
+                "Market Share",
+                "Sales Growth"
             ],
-            "type": "Network Performance"
+            "type": "Business Metrics"
         },
         {
             "words": [
-                "SQL",
-                "Query",
-                "Schema",
-                "Table"
+                "Sorting",
+                "Filtering",
+                "Pivot Tables",
+                "Pattern Recognition"
             ],
-            "type": "Database Management"
+            "type": "Data Analysis Techniques"
         },
         {
             "words": [
-                "AWS",
-                "Azure",
-                "Google Cloud Platform - GCP",
-                "Virtualization"
+                "Video",
+                "Audio",
+                "Text",
+                "Numbers"
             ],
-            "type": ""
+            "type": "Data Types"
         },
         {
             "words": [
-                "Malware",
-                "Phishing",
-                "Attack Vectors",
-                "Vulnerability Management"
+                "Surveys",
+                "Log Files",
+                "Market Research",
+                "Web Scraping"
             ],
-            "type": "Security"
+            "type": "Data Sources"
         },
         {
             "words": [
-                "Data",
-                "Model",
-                "Unsupervised",
-                "Prediction"
+                "cm",
+                "Pounds",
+                "Pascale",
+                "Ampere"
             ],
-            "type": "Machine Learning"
+            "type": "Units of Measure"
+        },
+        {
+            "words": [
+                "Nairobi",
+                "Berlin",
+                "Oslo",
+                "Lisbon"
+            ],
+            "type": "Cities"
+        },
+        {
+            "words": [
+                "PowerBI Training",
+                "Data Talks",
+                "BA Newsletter",
+                "BA Games"
+            ],
+            "type": "Business Analytics Activities"
+        },
+        {
+            "words": [
+                "Nokia",
+                "Motorolla",
+                "Oppo",
+                "Sony"
+            ],
+            "type": "Mobile Brands"
+        },
+        {
+            "words": [
+                "CSV",
+                "PDF",
+                "TXT",
+                "JPEG"
+            ],
+            "type": "Extensions"
+        },
+        {
+            "words": [
+                "Snape",
+                "Lilly",
+                "Neville",
+                "Draco"
+            ],
+            "type": "Harry Potter Characters"
+        },
+        {
+            "words": [
+                "Chatbots",
+                "NLP",
+                "Fraud Detection",
+                "Virtual Assistants"
+            ],
+            "type": "AI Applications"
+        },
+        {
+            "words": [
+                "Linear Regression",
+                "Decision Tree",
+                "Random Forest",
+                "Logistic Regression"
+            ],
+            "type": "Machine Learning Algorithms"
+        },
+        {
+            "words": [
+                "Association Rules",
+                "Clustering",
+                "Classification",
+                "Anomaly Detection"
+            ],
+            "type": "Data Mining Concepts"
         }
     ]
 }

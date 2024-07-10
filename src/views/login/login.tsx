@@ -4,7 +4,8 @@ import first from "./1st.jpg";
 import second from "./2nd.jpg";
 import third from "./3rd.jpg";
 import transparent from "./transparent.png";
-import leaderboardData from "../../leaderboard.json";
+// import leaderboardData from "../../leaderboard.json";
+import { Button } from "antd";
 
 export const dellBlue = "#0672CB";
 
@@ -12,6 +13,7 @@ interface PlayerData {
   score: number;
   ipAddress: string;
 }
+const leaderboardData: Record<string, PlayerData> = require("../../leaderboard.json");
 
 function LoginPage() {
   const [name, setName] = useState("");
@@ -41,7 +43,9 @@ function LoginPage() {
     localStorage.setItem("email", email);
     navigate("/game");
   };
-
+  const handleOk = () => {
+    navigate("/leaderboard");
+  };
   return (
     <div
       style={{
@@ -85,54 +89,74 @@ function LoginPage() {
           Please enter your email
         </h2>
         <div>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your name"
-          style={{
-            width: "200px",
-            height: "35px",
-            fontFamily: "Segoe UI",
-            fontSize: "12px",
-            marginBottom: "10px",
-            borderRadius: "8px",
-            borderWidth: "1px",
-            marginRight:"20px"
-          }}
-        />
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          style={{
-            width: "200px",
-            height: "35px",
-            fontFamily: "Segoe UI",
-            fontSize: "12px",
-            marginBottom: "10px",
-            borderRadius: "8px",
-            borderWidth: "1px",
-          }}
-        />
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter your name"
+            style={{
+              width: "200px",
+              height: "35px",
+              fontFamily: "Segoe UI",
+              fontSize: "12px",
+              marginBottom: "10px",
+              borderRadius: "8px",
+              borderWidth: "1px",
+              marginRight: "20px",
+            }}
+          />
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            style={{
+              width: "200px",
+              height: "35px",
+              fontFamily: "Segoe UI",
+              fontSize: "12px",
+              marginBottom: "10px",
+              borderRadius: "8px",
+              borderWidth: "1px",
+            }}
+          />
         </div>
-        <button
-          style={{
-            backgroundColor: dellBlue,
-            color: "white",
-            padding: "10px 20px",
-            borderRadius: "5px",
-            border: "none",
-            cursor: "pointer",
-            marginTop: "10px",
-            fontSize: "12px",
-            marginBottom: "10px",
-          }}
-          onClick={handleLogin}
-        >
-          Start Game
-        </button>
+        <div>
+          <button
+            style={{
+              backgroundColor: dellBlue,
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              border: "none",
+              cursor: "pointer",
+              marginTop: "10px",
+              fontSize: "12px",
+              marginBottom: "10px",
+            }}
+            onClick={handleLogin}
+          >
+            Start Game
+          </button>
+          <button
+            key="leaderboard"
+            onClick={handleOk}
+            style={{
+              backgroundColor: dellBlue,
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              border: "none",
+              cursor: "pointer",
+              marginTop: "10px",
+              fontSize: "12px",
+              marginBottom: "10px",
+              marginLeft: "20px",
+            }}
+          >
+            Go to Leaderboard
+          </button>
+        </div>
         {Object.entries(leaderboard).map(([player, data], index) => (
           <div
             key={index}
