@@ -70,7 +70,7 @@ function LoginPage() {
             fontWeight: "bolder",
           }}
         >
-          BA Program
+          Analytics Program
         </h1>
         <h2
           style={{
@@ -79,7 +79,7 @@ function LoginPage() {
             fontWeight: "bolder",
           }}
         >
-          BA Analytics ; Connection game{" "}
+          BA Games - Connection Game{" "}
         </h2>
         <h2 style={{ fontSize: "28px", fontWeight: "lighter" }}>
           Please enter your email
